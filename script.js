@@ -25,6 +25,10 @@ function Book(title, author, pages, read = false) {
   this.read = read;
 }
 
+function close() {
+  overlay.classList.remove('open');
+}
+
 function toggleRead(e) {
   if (e.target.textContent.includes('Yes')) {
     e.target.classList.remove(...readBtnClasses);
@@ -81,6 +85,8 @@ function display(book) {
   removeBtn.addEventListener('click', (e) => {
     myLibrary.splice(e.target.dataset.idx, 1);
     bookContainer.remove();
+    localStorage.clear();
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
   });
 }
 
@@ -98,13 +104,22 @@ function addBookToLibrary(e) {
   display(addedBook);
   form.reset();
   close();
+  localStorage.clear();
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
 
-function close() {
-  overlay.classList.remove('open');
+function renderStoredLibrary() {
+  if (localStorage.myLibrary) {
+    const shelf = JSON.parse(localStorage.getItem('myLibrary'));
+    myLibrary = shelf;
+    myLibrary.forEach((book) => {
+      display(book);
+    });
+  }
 }
 
 showForm.addEventListener('click', () => overlay.classList.add('open'));
 closeForm.addEventListener('click', close);
 
 form.addEventListener('submit', addBookToLibrary);
+renderStoredLibrary();

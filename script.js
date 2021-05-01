@@ -15,6 +15,20 @@ const readBtnClasses = ['btn', 'btn-outline-success', 'mb-3'];
 const notReadClasses = ['btn', 'btn-outline-secondary', 'mb-3'];
 const removeBtnClasses = ['btn', 'btn-warning', 'w-100'];
 
+let myLibrary = [];
+let addedBook;
+
+function Book(title, author, pages, read = false) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+}
+
+function addBookToLibrary() {
+
+}
+
 function close() {
   overlay.classList.remove('open');
 }

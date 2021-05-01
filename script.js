@@ -14,3 +14,10 @@ const bookClasses = ['col-md-6', 'offset-md-3', 'text-center', 'bg-light', 'm-2'
 const readBtnClasses = ['btn', 'btn-outline-success', 'mb-3'];
 const notReadClasses = ['btn', 'btn-outline-secondary', 'mb-3'];
 const removeBtnClasses = ['btn', 'btn-warning', 'w-100'];
+
+function close() {
+  overlay.classList.remove('open');
+}
+
+showForm.addEventListener('click', () => overlay.classList.add('open'));
+closeForm.addEventListener('click', close);

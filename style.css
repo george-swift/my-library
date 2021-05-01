@@ -1,0 +1,44 @@
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  z-index: 2;
+}
+
+.overlay-inner {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 34px 104px rgba(0, 0, 0, 0.25);
+}
+
+.icons {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+.icons:hover {
+  transform: scale(1.25) translateY(-4px);
+  transition: 0.4s ease-out;
+}
+
+.close {
+  background: transparent;
+  border: 0;
+}
+
+.new-book {
+  max-width: 250px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

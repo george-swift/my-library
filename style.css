@@ -60,4 +60,9 @@
     max-width: 100%;
     margin: 0 0 1rem !important;
   }
+
+  .overlay-inner {
+    width: 90%;
+    height: 80vh;
+  }
 }

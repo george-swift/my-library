@@ -14,4 +14,9 @@
 - Internet Connection
 - Affinity for reading books
 
+## Getting started
+- To get a copy of this project run `git clone https://github.com/george-swift/my-library.git` from a desired directory
+
+## Live Link
+Visit the [Library App](https://george-swift.github.io/my-library/)
 

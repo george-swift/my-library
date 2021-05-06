@@ -18,11 +18,13 @@ const removeBtnClasses = ['btn', 'btn-warning', 'w-100'];
 let myLibrary = [];
 let addedBook;
 
-function Book(title, author, pages, read = false) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+function bookFactory(title, author, pages, read = false) {
+  return {
+    title,
+    author,
+    pages,
+    read,
+  };
 }
 
 function close() {
@@ -46,6 +48,10 @@ function display(book) {
   const readBtn = document.createElement('button');
   const removeBtn = document.createElement('button');
 
+  const h4 = document.createElement('h4');
+  const h5 = document.createElement('h5');
+  const p = document.createElement('p');
+
   bookContainer.classList.add(...bookClasses);
   shelf.appendChild(bookContainer);
 
@@ -55,9 +61,6 @@ function display(book) {
 
   Object.entries(book).forEach(([key, value]) => {
     const idx = myLibrary.indexOf(book);
-    const h4 = document.createElement('h4');
-    const h5 = document.createElement('h5');
-    const p = document.createElement('p');
     if (key === 'title') {
       h4.textContent = value;
     } else if (key === 'author') {
@@ -93,7 +96,7 @@ function display(book) {
 function addBookToLibrary(e) {
   e.preventDefault();
 
-  addedBook = new Book(
+  addedBook = bookFactory(
     title.value,
     author.value,
     pages.value,

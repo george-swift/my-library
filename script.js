@@ -10,7 +10,7 @@ const read = form.querySelector('#read-book');
 
 const shelf = document.querySelector('.shelf');
 
-const bookClasses = ['col-md-6', 'offset-md-3', 'text-center', 'bg-light', 'm-2', 'p-4', 'new-book'];
+const bookClasses = ['col-2', 'text-center', 'bg-light', 'm-2', 'p-3', 'new-book'];
 const readBtnClasses = ['btn', 'btn-outline-success', 'mb-3'];
 const notReadClasses = ['btn', 'btn-outline-secondary', 'mb-3'];
 const removeBtnClasses = ['btn', 'btn-warning', 'w-100'];
@@ -18,13 +18,13 @@ const removeBtnClasses = ['btn', 'btn-warning', 'w-100'];
 let myLibrary = [];
 let addedBook;
 
-function bookFactory(title, author, pages, read = false) {
-  return {
-    title,
-    author,
-    pages,
-    read,
-  };
+class Book {
+  constructor(title, author, pages, read = false) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 function close() {
@@ -96,7 +96,7 @@ function display(book) {
 function addBookToLibrary(e) {
   e.preventDefault();
 
-  addedBook = bookFactory(
+  addedBook = new Book(
     title.value,
     author.value,
     pages.value,

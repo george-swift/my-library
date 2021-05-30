@@ -1,3 +1,8 @@
+body {
+  background: url('asset/library-pic.jpg') no-repeat;
+  background-size: cover;
+}
+
 .add-btn {
   width: 25%;
 }
@@ -46,8 +51,14 @@
   border: 0;
 }
 
+.shelf {
+  justify-content: center;
+}
+
 .new-book {
-  max-width: 250px;
+  min-width: 250px;
+  display: flex;
+  flex-flow: column wrap;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -56,13 +67,17 @@
     width: 100%;
   }
 
-  .new-book {
-    max-width: 100%;
-    margin: 0 0 1rem !important;
-  }
-
   .overlay-inner {
     width: 90%;
     height: 80vh;
+  }
+
+  .shelf {
+    align-items: center;
+  }
+
+  .new-book {
+    width: 90%;
+    margin: auto;
   }
 }
